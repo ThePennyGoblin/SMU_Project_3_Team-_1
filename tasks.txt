@@ -1,9 +1,9 @@
 Data Ingestion -
     - Function to take in excel
-    - Function to clean it and make it ready to dump into database
+    - Function to clean & transform to get it ready to dump into database
+    - Clean up raw data cleaning notebook (remove code/comments - add comments/markdown to track work for ease of coming back and fixing it/adjusting it).
 
 Data Loading - 
-    - Function to take a dataframe and adjust columns to match db model
     - Create a function to create a new DB in our RDS DB.
     - Create a function to read our table script query to create the tables.
     - Function to load into db
