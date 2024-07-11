@@ -1,0 +1,20 @@
+Data Ingestion -
+    - Function to take in excel
+    - Function to clean it and make it ready to dump into database
+
+Data Loading - 
+    - Function to take a dataframe and adjust columns to match db model
+    - Create a function to create a new DB in our RDS DB.
+    - Create a function to read our table script query to create the tables.
+    - Function to load into db
+
+Data Transformation - 
+    - What data do we need?
+    - Once we know what data we need, we need to create functions that query that data (transformed if needed)
+    
+Flask - 
+    - Create end points for html & data
+
+Other tasks:
+ - IP for Abby to add to security group
+ - Create user for Abby for database

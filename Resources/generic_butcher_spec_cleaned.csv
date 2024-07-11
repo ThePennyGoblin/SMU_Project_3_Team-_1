@@ -1,28 +1,28 @@
-product,weight_min_,weight_max,thick_min_,thick_max
-10 oz  Sirloin A,9.12,10.12,1.1,1.75
-11 oz  Sirloin B,10.08,11.08,1.1,1.75
-11 oz  Sirloin C,10.45,11.54,1.1,1.75
-13 oz  Ribeye Tail A,11.95,14.04,0.5,3.0
-16 oz  Strip A,14.45,17.54,0.5,3.0
-16 oz  Dry Age Ribeye A,14.95,17.04,0.95,3.0
-16 oz  Prime Strip A,14.95,17.04,0.95,3.0
-16 oz  Ribeye Tail A,14.95,17.04,0.5,3.0
-18 oz  Ribeye A,15.95,20.04,0.75,1.75
-20 oz  Prime Ribeye A,18.95,21.1,0.95,2.0
-22 oz  Porterhouse A,19.95,24.04,0.5,3.0
-3.5 oz Tender Bits A,3.0,4.0,0.4,3.0
-4 oz T Tenderloin Tail A,3.5,4.5,0.4,3.0
-5 oz S Sirloin A,4.31,5.31,1.1,1.75
-5 oz S Sirloin B,4.45,5.54,1.1,1.75
-6 oz S Sirloin A,5.27,6.27,1.1,1.75
-6 oz S Sirloin B,5.45,6.54,1.1,1.75
-6 oz T Tenderloin A,5.65,6.59,0.95,3.04
-7 oz S Sirloin A,6.24,7.24,1.1,1.75
-7 oz S Sirloin B,6.45,7.54,1.1,1.75
-7 oz T Tenderloin A,6.45,7.54,0.95,3.04
-8 oz P Pork Chop A,7.75,9.75,0.75,1.5
-8 oz S Sirloin A,7.2,8.2,1.1,1.75
-8 oz S Sirloin B,7.45,8.54,1.1,1.75
-8 oz T Tenderloin A,7.45,8.54,0.95,3.54
-9 oz S Sirloin A,8.45,9.54,1.1,1.75
-9 oz T Tenderloin A,8.45,9.54,0.95,3.54
+product,weight_min,weight_max,thick_min,thick_max
+ 10 oz  Sirloin A,9.12,10.12,1.1,1.75
+ 11 oz  Sirloin B,10.08,11.08,1.1,1.75
+ 11 oz  Sirloin C,10.45,11.54,1.1,1.75
+ 13 oz  Ribeye Tail A,11.95,14.04,0.5,3.0
+ 16 oz  Strip A,14.45,17.54,0.5,3.0
+ 16 oz  Dry Age Ribeye A,14.95,17.04,0.95,3.0
+ 16 oz  Prime Strip A,14.95,17.04,0.95,3.0
+ 16 oz  Ribeye Tail A,14.95,17.04,0.5,3.0
+ 18 oz  Ribeye A,15.95,20.04,0.75,1.75
+ 20 oz  Prime Ribeye A,18.95,21.1,0.95,2.0
+ 22 oz  Porterhouse A,19.95,24.04,0.5,3.0
+ 3.5 oz Tender Bits A,3.0,4.0,0.4,3.0
+ 4 oz T Tenderloin Tail A,3.5,4.5,0.4,3.0
+ 5 oz S Sirloin A,4.31,5.31,1.1,1.75
+ 5 oz S Sirloin B,4.45,5.54,1.1,1.75
+ 6 oz S Sirloin A,5.27,6.27,1.1,1.75
+ 6 oz S Sirloin B,5.45,6.54,1.1,1.75
+ 6 oz T Tenderloin A,5.65,6.59,0.95,3.04
+ 7 oz S Sirloin A,6.24,7.24,1.1,1.75
+ 7 oz S Sirloin B,6.45,7.54,1.1,1.75
+ 7 oz T Tenderloin A,6.45,7.54,0.95,3.04
+ 8 oz P Pork Chop A,7.75,9.75,0.75,1.5
+ 8 oz S Sirloin A,7.2,8.2,1.1,1.75
+ 8 oz S Sirloin B,7.45,8.54,1.1,1.75
+ 8 oz T Tenderloin A,7.45,8.54,0.95,3.54
+ 9 oz S Sirloin A,8.45,9.54,1.1,1.75
+ 9 oz T Tenderloin A,8.45,9.54,0.95,3.54
