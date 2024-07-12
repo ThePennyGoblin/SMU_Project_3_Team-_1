@@ -2,7 +2,7 @@
     "metric_id" INTEGER   NOT NULL,
     "product_id" INTEGER   NOT NULL,
     "product_name" VARCHAR(50)   NOT NULL,
-    "date_time" DATETIME   NOT NULL,
+    "date_time" TIMESTAMP   NOT NULL,
     "measured_weight" FLOAT   NOT NULL,
     "measured_height" FLOAT   NOT NULL,
     CONSTRAINT "pk_metrics" PRIMARY KEY (

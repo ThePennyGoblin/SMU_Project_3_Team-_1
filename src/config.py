@@ -1,3 +1,4 @@
+import os
 cleaning_configs = {
     'measured_weight': 'float',
     'date_time': 'date_time'
@@ -23,4 +24,3 @@ renaming_splicing_configs = {
 drop_rows = ['TEST BLOCK A', 'TEST BLOCK B', '5.5 oz Tenderloin A', '15 oz  Ribeye Tail A']
 
 csv_names = ('generic_butcher_cleaned.csv', 'generic_butcher_spec_cleaned.csv')
-

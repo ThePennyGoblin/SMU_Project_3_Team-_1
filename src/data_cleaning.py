@@ -6,7 +6,8 @@
 # - Remove products 15 oz Ribeye tail A & 5.5 oz Tenderloin A. -- COMPLETE 
 # - Change column names to match data model -- COMPLETE 
 
-from src.cleaning_config import cleaning_configs, renaming_splicing_configs, csv_names, drop_rows
+from src.config import cleaning_configs, renaming_splicing_configs, csv_names, drop_rows
+from src.data_load import log_data
 import pandas as pd
 
 def clean_csv(csv_path):
@@ -17,20 +18,18 @@ def clean_csv(csv_path):
     # if statement to make sure we pick right table when assigning the cleaned csv name.
     if len(df.columns) == 4:
         df = change_dtypes(df, cleaning_configs)
-        make_csv(df, csv_names[0])
-        return 'metric csv successful'
+        log_data('metric csv successful\n')
+        return make_csv(df, csv_names[0])
     else:
-        make_csv(df, csv_names[1])
-        return 'spec csv successful'
-    
-
+        log_data('spec csv successful\n')
+        return make_csv(df, csv_names[1])
+        
 def change_dtypes(df, config: dict|list):
     for col, dtype in config.items():
         if col == 'date_time':
             df[col] = pd.to_datetime(df[col], format='%m/%d/%Y %I:%M:%S %p')
         else:
-            df[col] = df[col].astype(dtype)
-            
+            df[col] = df[col].astype(dtype)  
     return df 
 
 def strip_whitespace(df):
@@ -50,7 +49,9 @@ def clean_column_names(df,config):
     return df
 
 def make_csv(df, file_name):
-    df.to_csv(f'data/cleaned/{file_name}', index=False)
+    new_file_path = f'data/cleaned/{file_name}'
+    df.to_csv(new_file_path, index=False)
+    return new_file_path
     
     
 def row_drop(df, config):
