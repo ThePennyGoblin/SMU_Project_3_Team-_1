@@ -6,7 +6,7 @@
 # - Remove products 15 oz Ribeye tail A & 5.5 oz Tenderloin A. -- COMPLETE 
 # - Change column names to match data model -- COMPLETE 
 
-from cleaning_config import cleaning_configs, renaming_splicing_configs, csv_names, drop_rows
+from src.cleaning_config import cleaning_configs, renaming_splicing_configs, csv_names, drop_rows
 import pandas as pd
 
 def clean_csv(csv_path):
@@ -14,6 +14,7 @@ def clean_csv(csv_path):
     df = clean_column_names(df, renaming_splicing_configs)
     df = strip_whitespace(df)
     df = row_drop(df, drop_rows)
+    # if statement to make sure we pick right table when assigning the cleaned csv name.
     if len(df.columns) == 4:
         df = change_dtypes(df, cleaning_configs)
         make_csv(df, csv_names[0])
@@ -40,6 +41,7 @@ def strip_whitespace(df):
 
 def clean_column_names(df,config):
     df.columns = df.columns.str.lower().str.strip().str.replace(" ", "_")
+    # this check is to make sure we grab the metric table and not the specs.
     if len(df.columns) > 6:
         df = df[config["m_splicing_config"]]
         df = df.rename(columns= config["m_renaming_config"])
@@ -48,13 +50,10 @@ def clean_column_names(df,config):
     return df
 
 def make_csv(df, file_name):
-    df.to_csv(f'resources/{file_name}', index=False)
+    df.to_csv(f'data/cleaned/{file_name}', index=False)
     
     
 def row_drop(df, config):
     drop_condition = df.loc[(df['product_name'] == config[0]) | (df['product_name'] == config[1]) | (df['product_name'] == config[2]) | (df['product_name'] == config[3])].index
     df = df.drop(drop_condition)
     return df
-
-
-
