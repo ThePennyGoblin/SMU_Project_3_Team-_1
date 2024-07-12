@@ -1,20 +1,23 @@
 Data Ingestion -
-    - Function to take in excel
-    - Function to clean & transform to get it ready to dump into database
-    - Clean up raw data cleaning notebook (remove code/comments - add comments/markdown to track work for ease of coming back and fixing it/adjusting it).
+    - Function to take in CSV -- DONE by Josh & Saad
+    - Function to clean & transform to get it ready to dump into database - missing ID columns.  - Josh and Saad to do between Friday/Sat
 
 Data Loading - 
-    - Create a function to create a new DB in our RDS DB.
-    - Create a function to read our table script query to create the tables.
-    - Function to load into db
+    - Create a function to create a new DB in our RDS DB.  Josh and Saad to do between Friday/Sat
+    - Create a function to read our table script query to create the tables.  Josh and Saad to do between Friday/Sat 
+    - Function to load into db  Josh and Saad to do between Friday/Sat 
 
 Data Transformation - 
-    - What data do we need?
+    - What data do we need? Caite and Kevin are working on this Friday/Sat
+    - Function for creating a histogram Caite and Kevin are working on this Friday/Sat
+        - With weight, thickness. 
+    - Function to make a describe chart. Caite and Kevin are working on this Friday/Sat 
+    - How to make a vertical on the histogram.  Caite and Kevin are working on this Friday/Sat
     - Once we know what data we need, we need to create functions that query that data (transformed if needed)
+    - Merge code "df1 = df.merge(df_spec, how='left', on='product')" 
+
+    - Functions to query the data 
+    - Functions to transform based on the above
     
 Flask - 
     - Create end points for html & data
-
-Other tasks:
- - IP for Abby to add to security group
- - Create user for Abby for database
