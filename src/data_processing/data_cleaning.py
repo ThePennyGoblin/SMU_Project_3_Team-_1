@@ -6,8 +6,8 @@
 # - Remove products 15 oz Ribeye tail A & 5.5 oz Tenderloin A. -- COMPLETE 
 # - Change column names to match data model -- COMPLETE 
 
-from src.config import CLEANING_CONFIGS, RENAMING_SPLICING_CONFIGS, CSV_NAMES, DROP_ROWS
-from src.data_load import log_data
+from src.config.config import CLEANING_CONFIGS, RENAMING_SPLICING_CONFIGS, CSV_NAMES, DROP_ROWS
+from src.data_processing.data_load import log_data
 import pandas as pd
 
 def clean_csv(csv_path):

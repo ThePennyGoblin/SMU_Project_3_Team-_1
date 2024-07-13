@@ -5,6 +5,8 @@ query executed
 query executed
 query executed
 This query '\n\n', is whitepsace.
-Executed table creation query from sql file.metric_id column created.
+Executed table creation query from sql file.
+metric_id column created.
 product_id column created.
-products loaded.metrics loaded.
+products loaded.
+metrics loaded.

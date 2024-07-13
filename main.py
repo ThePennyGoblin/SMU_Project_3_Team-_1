@@ -1,6 +1,6 @@
-from src.data_cleaning import clean_csv
-from src.db_model import establish_db
-from src.data_load import dump_data
+from src.data_processing.data_cleaning import clean_csv
+from src.data_processing.db_model import establish_db
+from src.data_processing.data_load import dump_data
 
 raw_metric_path = 'data/raw/Generic_Butcher_Company_2024_06.csv'
 raw_spec_path = 'data/raw/Generic_Butcher_Company_2024_06_SPEC_SHEET.csv'

@@ -1,7 +1,7 @@
 import pandas as pd
 from sqlalchemy import create_engine
-from src.config import PRIMARY_KEYS, CSV_PATHS, TABLE_NAMES, MERGE_CONFIG
-from src.private_info import DB_BUTCHER_URL, test_new_db
+from src.config.config import PRIMARY_KEYS, CSV_PATHS, TABLE_NAMES, MERGE_CONFIG
+from src.config.private_info import DB_BUTCHER_URL, test_new_db
 
 engine = create_engine(test_new_db, isolation_level='AUTOCOMMIT')
 
@@ -34,7 +34,7 @@ def dump_data():
     
     for table, table_name in loading_config:
         print(load_table(table, table_name))
-        log_data(f'{table_name} loaded.')
+        log_data(f'{table_name} loaded.\n')
         
     return 'All tables created successfully.'
 
