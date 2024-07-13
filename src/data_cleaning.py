@@ -6,23 +6,23 @@
 # - Remove products 15 oz Ribeye tail A & 5.5 oz Tenderloin A. -- COMPLETE 
 # - Change column names to match data model -- COMPLETE 
 
-from src.config import cleaning_configs, renaming_splicing_configs, csv_names, drop_rows
+from src.config import CLEANING_CONFIGS, RENAMING_SPLICING_CONFIGS, CSV_NAMES, DROP_ROWS
 from src.data_load import log_data
 import pandas as pd
 
 def clean_csv(csv_path):
     df = pd.read_csv(csv_path)
-    df = clean_column_names(df, renaming_splicing_configs)
+    df = clean_column_names(df, RENAMING_SPLICING_CONFIGS)
     df = strip_whitespace(df)
-    df = row_drop(df, drop_rows)
+    df = row_drop(df, DROP_ROWS)
     # if statement to make sure we pick right table when assigning the cleaned csv name.
     if len(df.columns) == 4:
-        df = change_dtypes(df, cleaning_configs)
+        df = change_dtypes(df, CLEANING_CONFIGS)
         log_data('metric csv successful\n')
-        return make_csv(df, csv_names[0])
+        return make_csv(df, CSV_NAMES[0])
     else:
         log_data('spec csv successful\n')
-        return make_csv(df, csv_names[1])
+        return make_csv(df, CSV_NAMES[1])
         
 def change_dtypes(df, config: dict|list):
     for col, dtype in config.items():
@@ -51,7 +51,7 @@ def clean_column_names(df,config):
 def make_csv(df, file_name):
     new_file_path = f'data/cleaned/{file_name}'
     df.to_csv(new_file_path, index=False)
-    return new_file_path
+    return f'{new_file_path} created.\n'
     
     
 def row_drop(df, config):

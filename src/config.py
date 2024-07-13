@@ -1,10 +1,9 @@
-import os
-cleaning_configs = {
+CLEANING_CONFIGS = {
     'measured_weight': 'float',
     'date_time': 'date_time'
     }
 
-renaming_splicing_configs = {
+RENAMING_SPLICING_CONFIGS = {
     "s_rename_config" : {
         "product":"product_name"
     },
@@ -21,6 +20,17 @@ renaming_splicing_configs = {
          "height;_avg"]
 }
 
-drop_rows = ['TEST BLOCK A', 'TEST BLOCK B', '5.5 oz Tenderloin A', '15 oz  Ribeye Tail A']
+DROP_ROWS = ['TEST BLOCK A', 'TEST BLOCK B', '5.5 oz Tenderloin A', '15 oz  Ribeye Tail A']
 
-csv_names = ('generic_butcher_cleaned.csv', 'generic_butcher_spec_cleaned.csv')
+CSV_PATHS = ['data/cleaned/generic_butcher_cleaned.csv', 'data/cleaned/generic_butcher_spec_cleaned.csv']
+CSV_NAMES = ['generic_butcher_cleaned.csv', 'generic_butcher_spec_cleaned.csv']
+
+PRIMARY_KEYS = ['metric_id', 'product_id']
+
+MERGE_CONFIG = {
+    'join_key': 'product_name',
+    'right_df': CSV_PATHS[1],
+    'final_cols': ['metric_id', 'product_id', 'product_name', 'date_time', 'measured_weight', 'measured_height']
+}
+
+TABLE_NAMES = ['metrics', 'products']
