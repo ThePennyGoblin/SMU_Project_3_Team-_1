@@ -1,11 +1,11 @@
 Data Ingestion -
-    - Function to take in CSV -- DONE by Josh & Saad
-    - Function to clean & transform to get it ready to dump into database - missing ID columns.  - Josh and Saad to do between Friday/Sat
+    - Function to take in CSV -- DONE THR 7/11 
+    - Function to clean & transform to get it ready to dump into database - missing ID columns.  -- DONE FRI 7/12
 
 Data Loading - 
-    - Create a function to create a new DB in our RDS DB.  Josh and Saad to do between Friday/Sat
-    - Create a function to read our table script query to create the tables.  Josh and Saad to do between Friday/Sat 
-    - Function to load into db  Josh and Saad to do between Friday/Sat 
+    - Create a function to create a new DB in our RDS DB. -- DONE FRI 7/12
+    - Create a function to read our table script query to create the tables. -- DONE FRI 7/12
+    - Function to load into db. -- DONE FRI 7/12
 
 Data Transformation - 
     - What data do we need? Caite and Kevin are working on this Friday/Sat
@@ -15,9 +15,40 @@ Data Transformation -
     - How to make a vertical on the histogram.  Caite and Kevin are working on this Friday/Sat
     - Once we know what data we need, we need to create functions that query that data (transformed if needed)
     - Merge code "df1 = df.merge(df_spec, how='left', on='product')" 
-
     - Functions to query the data 
     - Functions to transform based on the above
     
-Flask - 
-    - Create end points for html & data
+Data Serving
+    Flask - 
+        - Create end points to serve html files & data as APIs for client to read.
+        - Integrate internal modules to transform the data.
+
+Client Processing
+    -HTML Files
+        -Source bootstrap and place all elements as needed.
+        -Source JS scripts into the HTML 
+    -JS Files
+        -Logic to grab the data from proper end points defined in the flask model. 
+        -Logic to perform minor transformation/processing (hopefully most done on the python side)
+        -Logic to plot the data (Plotly, chatgpt also said Chartly JS library is a well designed charting library, might be better than plotly?)
+    -CSS (probably won't need these with bootstrap) https://bootswatch.com/
+
+Debugging & Cleaning Up
+    - Ensure everything works as intended. 
+    - Clean up unneccessary files/folders comments, fix any code, typo, refactor variables etc. 
+
+Deployment
+    AWS EBS 
+        - Set up instance
+        - Store env variables
+        - Get identifying information needed to connect to this environment
+        - Whitlist/give permission to interact with RDS
+    GitHub CICD
+        - Upload YAML file instructions
+        - Give AWS EBS security/connection details
+        - Grab a drink
+
+Celebrate! 
+
+
+
