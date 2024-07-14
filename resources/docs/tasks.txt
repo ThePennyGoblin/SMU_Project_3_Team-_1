@@ -8,20 +8,32 @@ Data Loading -
     - Function to load into db. -- DONE FRI 7/12
 
 Data Transformation - 
-    - What data do we need? Caite and Kevin are working on this Friday/Sat
-    - Function for creating a histogram Caite and Kevin are working on this Friday/Sat
-        - With weight, thickness. 
-    - Function to make a describe chart. Caite and Kevin are working on this Friday/Sat 
-    - How to make a vertical on the histogram.  Caite and Kevin are working on this Friday/Sat
-    - Once we know what data we need, we need to create functions that query that data (transformed if needed)
-    - Merge code "df1 = df.merge(df_spec, how='left', on='product')" 
+    -- Model -- pt1 (weight) complete -
+    - What data do we need? Caite and Kevin DONE THURS 7/11
+    - How to make a vertical on the histogram.  Kevin 7/13
+    - Merge code "df1 = df.merge(df_spec, how='left', on='product')" - no merge needed 7/14
+
+    -- Outlier and Error Handling --
+    - Excluding all weights over 50 by multiplying by .01-- clear decimal placement error DONE Kevin Caite 7/14
+    - OTHER cleaning of outliers as needed
+
+    -- Outliers Reporting and Charting -- 
+    - function to pull and display outliers
+    - function to pull and display describe chart
+
+    -- User Experience -- 
     - Functions to query the data 
     - Functions to transform based on the above
+     - Function to make a describe chart. 
+        - weight
+        - thickness
     
+
 Data Serving
     Flask - 
         - Create end points to serve html files & data as APIs for client to read.
         - Integrate internal modules to transform the data.
+
 
 Client Processing
     -HTML Files
@@ -42,7 +54,7 @@ Deployment
         - Set up instance
         - Store env variables
         - Get identifying information needed to connect to this environment
-        - Whitlist/give permission to interact with RDS
+        - Whitelist/give permission to interact with RDS
     GitHub CICD
         - Upload YAML file instructions
         - Give AWS EBS security/connection details
