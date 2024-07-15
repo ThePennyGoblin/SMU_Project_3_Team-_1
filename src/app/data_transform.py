@@ -1,4 +1,9 @@
 def weight_histogram(product_name):
+#def weight_histogram(product_name, folder):< spit the png to a temporary folder
+   #give it a temp folder as a parameter
+    #savefig vs plot-, temp file library? or rand ?
+    #gen filename in folder 
+
     import os
     import pandas as pd
     import matplotlib.pyplot as plt
@@ -25,9 +30,7 @@ def weight_histogram(product_name):
     product=product_data.copy()
      
     #Adjust decimal point that were obvious errors
-    for index, row in product.iterrows():
-        if row['measured_weight'] > 50:
-           product.at[index, 'measured_weight'] *= 0.01
+    product['measured_weight'] = product['measured_weight'].apply(lambda x: x * 0.01 if x > 50 else x)
         
     # product = product[["product_name","date_time","measured_weight"]]
     # drop_data = product.loc[product['measured_weight']>=50].index
