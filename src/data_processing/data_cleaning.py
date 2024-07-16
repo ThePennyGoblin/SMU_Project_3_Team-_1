@@ -58,3 +58,5 @@ def row_drop(df, config):
     drop_condition = df.loc[(df['product_name'] == config[0]) | (df['product_name'] == config[1]) | (df['product_name'] == config[2]) | (df['product_name'] == config[3])].index
     df = df.drop(drop_condition)
     return df
+#add condition to drop any row with a a height of .05 of less.
+#variable = df.groupby('product_name')['measured_height'].value_counts().reset_index().sort_values(by="measured_height").head(20)
