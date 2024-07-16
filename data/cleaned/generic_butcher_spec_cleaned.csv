@@ -1,4 +1,4 @@
-product_name,weight_min,weight_max,thick_min,thick_max
+product_name,weight_min,weight_max,height_min,height_max
 10 oz  Sirloin A,9.12,10.12,1.1,1.75
 11 oz  Sirloin B,10.08,11.08,1.1,1.75
 11 oz  Sirloin C,10.45,11.54,1.1,1.75

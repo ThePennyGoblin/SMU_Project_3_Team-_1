@@ -15,8 +15,8 @@ CREATE TABLE "products" (
     "product_name" VARCHAR(50)   NOT NULL,
     "weight_min" FLOAT   NOT NULL,
     "weight_max" FLOAT   NOT NULL,
-    "thick_min" FLOAT   NOT NULL,
-    "thick_max" FLOAT   NOT NULL,
+    "height_min" FLOAT   NOT NULL,
+    "height_max" FLOAT   NOT NULL,
     CONSTRAINT "pk_products" PRIMARY KEY (
         "product_id"
      )

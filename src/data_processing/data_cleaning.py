@@ -14,9 +14,9 @@ def clean_csv(csv_path):
     df = pd.read_csv(csv_path)
     df = clean_column_names(df, RENAMING_SPLICING_CONFIGS)
     df = strip_whitespace(df)
-    df = row_drop(df, DROP_ROWS)
     # if statement to make sure we pick right table when assigning the cleaned csv name.
     if len(df.columns) == 4:
+        df = row_drop(df, DROP_ROWS)
         df = change_dtypes(df, CLEANING_CONFIGS)
         log_data('metric csv successful\n')
         return make_csv(df, CSV_NAMES[0])
@@ -55,8 +55,12 @@ def make_csv(df, file_name):
     
     
 def row_drop(df, config):
-    drop_condition = df.loc[(df['product_name'] == config[0]) | (df['product_name'] == config[1]) | (df['product_name'] == config[2]) | (df['product_name'] == config[3])].index
+    drop_condition = df.loc[(df['product_name'] == config[0]) | 
+                            (df['product_name'] == config[1]) | 
+                            (df['product_name'] == config[2]) | 
+                            (df['product_name'] == config[3]) |
+                            (df['measured_height'] < config[4]) 
+                            ].index
+    
     df = df.drop(drop_condition)
     return df
-#add condition to drop any row with a a height of .05 of less.
-#variable = df.groupby('product_name')['measured_height'].value_counts().reset_index().sort_values(by="measured_height").head(20)

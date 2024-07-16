@@ -5,7 +5,9 @@ CLEANING_CONFIGS = {
 
 RENAMING_SPLICING_CONFIGS = {
     "s_rename_config" : {
-        "product":"product_name"
+        "product":"product_name",
+        "thick_min": "height_min",
+        "thick_max": "height_max"
     },
     "m_renaming_config":{
         "product":"product_name",
@@ -20,7 +22,7 @@ RENAMING_SPLICING_CONFIGS = {
          "height;_avg"]
 }
 
-DROP_ROWS = ['TEST BLOCK A', 'TEST BLOCK B', '5.5 oz Tenderloin A', '15 oz  Ribeye Tail A']
+DROP_ROWS = ['TEST BLOCK A', 'TEST BLOCK B', '5.5 oz Tenderloin A', '15 oz  Ribeye Tail A', .05]
 
 CSV_PATHS = ['data/cleaned/generic_butcher_cleaned.csv', 'data/cleaned/generic_butcher_spec_cleaned.csv']
 CSV_NAMES = ['generic_butcher_cleaned.csv', 'generic_butcher_spec_cleaned.csv']
