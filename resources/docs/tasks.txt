@@ -17,6 +17,7 @@ Data Transformation -
 
     -- Outlier and Error Handling --
     - Excluding all weights over 50 by multiplying by .01-- clear decimal placement error DONE Kevin Caite 7/14
+    - Removing all rows with thickness < .05in -- DONE 7/16
     - OTHER cleaning of outliers as needed
     - Itterows can we lambda that
 

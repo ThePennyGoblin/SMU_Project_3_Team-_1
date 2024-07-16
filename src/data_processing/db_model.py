@@ -1,4 +1,4 @@
-from src.config.private_info import DB_HOST, DB_PASS, DB_USER, DB_NAME, DB_DEFAULT_URL, test_def_db, test_new_db
+from src.config.private_info import DB_NAME, test_def_db, test_new_db
 from src.data_processing.data_load import log_data
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import SQLAlchemyError
