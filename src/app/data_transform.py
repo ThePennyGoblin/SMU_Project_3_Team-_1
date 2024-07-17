@@ -1,65 +1,70 @@
-def weight_histogram(product_name):
-#def weight_histogram(product_name, folder):< spit the png to a temporary folder
-   #give it a temp folder as a parameter
-    #savefig vs plot-, temp file library? or rand ?
-    #gen filename in folder 
+import pandas as pd
+import numpy as np
+import seaborn
+import matplotlib.pyplot as plt
+import plotly.express as px
 
-    import os
-    import pandas as pd
-    import matplotlib.pyplot as plt
-    import csv
-    import numpy as np
-    # import requests
-    # import json
-    # import scipy.stats as st
-    # import seaborn as sns
+def get_bins(metric_df, product_name):
+   current_product = metric_df.loc[metric_df['product_name'] == product_name]
     
-    # Specify the file path
-    file_path = '../data/cleaned/generic_butcher_cleaned.csv'
+   bin_min = np.floor(current_product['measured_weight'].min())-1
+   bin_max = np.ceil(current_product['measured_weight'].max())+1
 
-    # Read the CSV file into a DataFrame
-    df = pd.read_csv(file_path)
+   bin_edges = (bin_min, bin_max)
+   return bin_edges
 
-    file_path2 = '../data/cleaned/generic_butcher_spec_cleaned.csv'
+def goal_posts(spec_df, metric_df, product_name):
+   
+   spec_product = spec_df.loc[spec_df['product_name'] == product_name]
+   metric_product = metric_df.loc[metric_df['product_name'] == product_name] 
+   
+   min_goal = spec_product['weight_min'].values[0]
+   max_goal = spec_product['weight_max'].values[0]
+   avg_goal = round(metric_product['measured_weight'].mean(), 3)
+   
+   posts =  (min_goal, max_goal, avg_goal)
+   return posts
 
-    # Read the CSV file into a DataFrame
-    df2 = pd.read_csv(file_path2)
+def query_metrics(engine, product_name):
+   query = f""" 
+   Select measured_weight, measured_height from metrics where product_name = {product_name};   
+   """
+   df = pd.read_sql(query=query,engine=engine)
+   return df
+      
+      
+def query_specs(engine, product_name):
+   query = f""" 
+   Select weight_min, weight_max, height_min, height_max from specs where product_name = {product_name};   
+   """
+   df = pd.read_sql(query=query,engine=engine)
+   return df
 
-    #Copied data to preserve original dataset
-    product_data = df.loc[df["product_name"] == product_name]
-    product=product_data.copy()
-     
-    #Adjust decimal point that were obvious errors
-    product['measured_weight'] = product['measured_weight'].apply(lambda x: x * 0.01 if x > 50 else x)
-        
-    # product = product[["product_name","date_time","measured_weight"]]
-    # drop_data = product.loc[product['measured_weight']>=50].index
-    # product = product.drop(drop_data)
-    
-    #determine bin min and max in a readable format
-    min_wt = np.min(product['measured_weight'])
-    max_wt = np.max(product['measured_weight'])
-    binmin = np.floor(min_wt)
-    binmax = np.ceil(max_wt)
 
-    #deterimined spec goal posts
-    weight_min_spec = (df2.loc[df2['product_name']==product_name,'weight_min']).iloc[0]
-    weight_max_spec = (df2.loc[df2['product_name']==product_name,'weight_max']).iloc[0]
-    weight_avg = np.mean(product['measured_weight'])
+def make_plot(df, bins, posts, col, step):
+   
+   fig = px.histogram(df, x=col)
+   fig.add_vline(x=posts[0], line_dash='solid', line_color='red',annotation_text=f"{posts[0]:.2f}", annotation_position="top left")
+   fig.add_vline(x=posts[1], line_dash='solid', line_color='red',annotation_text=f"{posts[1]:.2f}", annotation_position="top left")
+   fig.add_vline(x=posts[2], line_dash='longdash', line_color='blue',annotation_text=f"{posts[2]:.2f}", annotation_position="top left")
 
-    #created bins based on the quarter ounce
-    num_bins = int((binmax-binmin)*(1/.25))
+   fig.update_layout(
+      width=800,
+      height=600,
+      title='Histogram of Measured Weight with Goals',
+      xaxis_title='Measured Weight',
+      yaxis_title='Count',
+   )
 
-    #pulls measured weight data for the x value of the histogram
-    #x is the measurment and the y is the count
-    product = product['measured_weight']
+   fig.update_traces(marker=dict(color='#43A7E5', line=dict(width=1, color='DarkSlateGrey')))
 
-    plt.figure(figsize=(10,6))
-    plt.hist(product,bins=num_bins)
-    plt.axvline(weight_avg, color="green", linewidth= 3)
-    plt.axvline(weight_min_spec, color="red")
-    plt.axvline(weight_max_spec, color="red")
-    plt.title(product_name)
-    plt.xlabel('Weight (oz)')
-    plt.ylabel('Count')
-    plt.show()
+   fig.update_traces(xbins=dict(
+      start=bins[0],
+      end=bins[1],
+      size=step
+   ))
+   fig.show()
+   
+# fig.add_vline(x=height_avg, line=dict(color="green", width=3), annotation_text=f"{height_avg:.2f}", annotation_position="top left")
+# fig.add_vline(x=height_min_spec, line=dict(color="red", width=2, dash='dash'), annotation_text=f"{height_min_spec:.2f}", annotation_position="top left")
+# fig.add_vline(x=height_max_spec, line=dict(color="red", width=2, dash='dash'), annotation_text=f"{height_max_spec:.2f}", annotation_position="top left")
