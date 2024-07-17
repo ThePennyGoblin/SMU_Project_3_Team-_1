@@ -26,7 +26,7 @@ def home():
 
 @app.route('/all_data')
 def metrics():
-    return render_template('scratch_jupyter_books/josh.html') #overview
+    return render_template('josh.html') #overview
 
 @app.route('/product_specific')
 def products():
