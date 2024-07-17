@@ -3,8 +3,9 @@ import plotly.express as px
 from src.app.db_operations import query_metrics, query_specs
 from src.config.config import HIST_CONFIG
 
-def generate_histogram(product_name, engine, config):
-   plot_configurations = HIST_CONFIG[config]
+def generate_histogram(product_name, engine, config_key):
+   
+   plot_configurations = HIST_CONFIG[config_key]
    
    m_df = query_metrics(engine, product_name)
    s_df = query_specs(engine, product_name)
