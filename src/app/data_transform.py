@@ -1,45 +1,32 @@
-import pandas as pd
 import numpy as np
-import seaborn
-import matplotlib.pyplot as plt
 import plotly.express as px
+from src.app.db_operations import query_metrics, query_specs
+from src.config.config import HIST_CONFIG
 
-def get_bins(metric_df, product_name):
-   current_product = metric_df.loc[metric_df['product_name'] == product_name]
-    
-   bin_min = np.floor(current_product['measured_weight'].min())-1
-   bin_max = np.ceil(current_product['measured_weight'].max())+1
-
+def generate_histogram(product_name, engine, config):
+   
+   m_df = query_metrics(engine, product_name)
+   s_df = query_specs(engine, product_name)
+   
+   bin_edges = get_bins(m_df, config)
+   posts = goal_posts(s_df, m_df, config)
+   return make_plot(m_df, bin_edges, posts, HIST_CONFIG[config][0], .25)
+   
+   
+def get_bins(metric_df, config):
+   col = HIST_CONFIG[config][0]
+   bin_min = np.floor(metric_df[col].min()) - 1
+   bin_max = np.ceil(metric_df[col].max()) + 1
    bin_edges = (bin_min, bin_max)
    return bin_edges
 
-def goal_posts(spec_df, metric_df, product_name):
+def goal_posts(spec_df, metric_df, config):
    
-   spec_product = spec_df.loc[spec_df['product_name'] == product_name]
-   metric_product = metric_df.loc[metric_df['product_name'] == product_name] 
-   
-   min_goal = spec_product['weight_min'].values[0]
-   max_goal = spec_product['weight_max'].values[0]
-   avg_goal = round(metric_product['measured_weight'].mean(), 3)
-   
+   min_goal = spec_df[HIST_CONFIG[config][1]].values[0]
+   max_goal = spec_df[HIST_CONFIG[config][2]].values[0]
+   avg_goal = round(metric_df[HIST_CONFIG[config][0]].mean(), 3)
    posts =  (min_goal, max_goal, avg_goal)
    return posts
-
-def query_metrics(engine, product_name):
-   query = f""" 
-   Select measured_weight, measured_height from metrics where product_name = {product_name};   
-   """
-   df = pd.read_sql(query=query,engine=engine)
-   return df
-      
-      
-def query_specs(engine, product_name):
-   query = f""" 
-   Select weight_min, weight_max, height_min, height_max from specs where product_name = {product_name};   
-   """
-   df = pd.read_sql(query=query,engine=engine)
-   return df
-
 
 def make_plot(df, bins, posts, col, step):
    
@@ -51,8 +38,8 @@ def make_plot(df, bins, posts, col, step):
    fig.update_layout(
       width=800,
       height=600,
-      title='Histogram of Measured Weight with Goals',
-      xaxis_title='Measured Weight',
+      title=f'Histogram of {col} with Goals',
+      xaxis_title=f'{col}',
       yaxis_title='Count',
    )
 
@@ -64,7 +51,5 @@ def make_plot(df, bins, posts, col, step):
       size=step
    ))
    fig.show()
+   # return fig
    
-# fig.add_vline(x=height_avg, line=dict(color="green", width=3), annotation_text=f"{height_avg:.2f}", annotation_position="top left")
-# fig.add_vline(x=height_min_spec, line=dict(color="red", width=2, dash='dash'), annotation_text=f"{height_min_spec:.2f}", annotation_position="top left")
-# fig.add_vline(x=height_max_spec, line=dict(color="red", width=2, dash='dash'), annotation_text=f"{height_max_spec:.2f}", annotation_position="top left")

@@ -36,3 +36,8 @@ MERGE_CONFIG = {
 }
 
 TABLE_NAMES = ['metrics', 'products']
+
+HIST_CONFIG = {
+    'weight': ['measured_weight', 'weight_min', 'weight_max'],
+    'height': ['measured_height', 'height_min', 'height_max']
+}
