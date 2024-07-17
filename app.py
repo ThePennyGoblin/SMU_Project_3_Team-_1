@@ -22,15 +22,19 @@ def get_all_data():
 # HTML Routes
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html') #Home
 
 @app.route('/all_data')
 def metrics():
-    return render_template('templates/dashboard_or_whatevernamewewant.html')
+    return render_template('scratch_jupyter_books/josh.html') #overview
 
 @app.route('/product_specific')
 def products():
-    return render_template('product_specific.html')
+    return render_template('product_specific.html') #height
+
+@app.route('/weight')
+def about():
+    return render_template('placeholder.html') #weight
 
 @app.route('/about')
 def about():
