@@ -38,6 +38,18 @@ MERGE_CONFIG = {
 TABLE_NAMES = ['metrics', 'products']
 
 HIST_CONFIG = {
-    'weight': ['measured_weight', 'weight_min', 'weight_max', .25],
-    'height': ['measured_height', 'height_min', 'height_max', .1]
+    'weight': ['measured_weight', 'weight_min', 'weight_max', .25, 'Weight (oz)'],
+    'height': ['measured_height', 'height_min', 'height_max', .1, 'Height (in)']
 }
+
+OUTLIERS_CONFIG = {
+    'col': 'measured_weight',
+    'outlier': 50
+}
+
+VITAL_STATS_CONFIG = {
+    'weight': ['weight_min', 'weight_max', 'measured_weight'],
+    'height': ['height_min', 'height_max', 'measured_height']
+}
+
+
