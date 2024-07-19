@@ -40,7 +40,7 @@ def make_overall_card_weight(engine):
         'Min_Weight': 'Min Weight',
         'Max_Weight': 'Max Weight',
         'Average_Weight': 'Average Weight',
-        'Pct_In_Spec': 'Pct In Spec',
+        'Pct_In_Spec': 'Pct In Spec Weight',
         'Count_Offspec': 'Count Offspec'
     }, inplace=True)
     
@@ -128,9 +128,9 @@ def product_specific_card(engine, product_name, config_key):
     'Compliant': [compliance]
     })
 
-    return subplot_.T
+    return subplot_
 
-def action_card(engine):
+def action_card(engine)-> dict:
     df_w = make_overall_card_weight(engine)
     df_h = make_overall_card_height(engine)
     

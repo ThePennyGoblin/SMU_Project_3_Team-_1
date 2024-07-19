@@ -37,7 +37,7 @@ def query_specs(engine, product_name=None):
 def query_product_list(engine):
     query = """
     SELECT product_name
-    FROM products
+    FROM products;
     """
     df = pd.read_sql(query, engine)
     return df

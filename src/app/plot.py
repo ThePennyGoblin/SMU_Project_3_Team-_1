@@ -61,7 +61,6 @@ def make_plot(df, bins, posts, col, prod_name, type_of_chart, axis_labels):
    )
 
    fig.update_traces(marker=dict(color='#43A7E5', line=dict(width=1, color='DarkSlateGrey')))
-
-   fig.show()
-   # return fig
+   
+   return fig
    

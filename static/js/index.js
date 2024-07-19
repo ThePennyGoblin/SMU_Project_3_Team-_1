@@ -1,4 +1,4 @@
-
+// RANDOM CODE TO PLOT PLOTLY IN JS AS HTML STRINGS FROM FLASK. 
 const productName = 'example_product';
 
 // Fetch and insert plot1
