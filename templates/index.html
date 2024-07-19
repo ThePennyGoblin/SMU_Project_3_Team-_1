@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Action</title>
+  <link rel="stylesheet" href="https://bootswatch.com/5/slate/bootstrap.min.css">
+  <style>
+    .alert-container {
+      display: none; /* Hidden by default */
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">*insert company name here*</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Action
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Product</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <button type="button" class="btn btn-light">Link to Height</button>
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-light">Link to Weight</button>
+      </div>
+    </div>
+    
+    <div class="row justify-content-center my-4">
+      <div class="col-md-12">
+        <div class="alert-container">
+          <div class="alert alert-danger" role="alert">
+            The table has content!
+          </div>
+        </div>
+
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-header">Header</div>
+          <div class="card-body">
+            <h4 class="card-title">Primary card title</h4>
+            <p class="card-text">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Height</th>
+                    <th scope="col">Column heading</th>
+                    <th scope="col">Column heading</th>
+                    <th scope="col">Column heading</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-light">
+                    <th scope="row">Light</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                  </tr>
+                  <!-- Add more rows as needed -->
+                </tbody>
+              </table>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var tableBody = document.querySelector("table tbody");
+      if (tableBody && tableBody.rows.length > 0) { // Check if the table has rows
+        document.querySelector(".alert-container").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
