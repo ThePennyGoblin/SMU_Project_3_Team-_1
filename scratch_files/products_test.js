@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
       productList.innerHTML = '';
 
       products.forEach(product => {
-        const listItem = document.createElement('li');
-        listItem.className = 'list-group-item';
+        const listItem = document.createElement('a');
+        listItem.className = 'nav-link';
+        listItem.href = '#';
         listItem.textContent = product.product_name;
         listItem.addEventListener('click', () => loadProductData(product.product_name));
         productList.appendChild(listItem);
@@ -56,7 +57,8 @@ function loadProductData(product) {
 
       if (data.length > 0) {
         const item = data[0];
-        const keys = ['Average', 'Compliant', 'Count', 'Count Offspec', 'Max', 'Min', 'Pct In Spec', 'Product'];
+        // Adjusted the keys to match the new order
+        const keys = ['Product', 'Count', 'Min', 'Max', 'Average', 'Pct In Spec', 'Count Offspec', 'Compliant'];
         keys.forEach(key => {
           const row = document.createElement('tr');
           row.classList.add('table-light');
@@ -66,7 +68,11 @@ function loadProductData(product) {
           keyCell.textContent = key;
 
           const valueCell = document.createElement('td');
-          valueCell.textContent = item[key];
+          if (key === 'Compliant') {
+            valueCell.textContent = item[key] ? 'Yes' : 'No';
+          } else {
+            valueCell.textContent = item[key];
+          }
 
           row.appendChild(keyCell);
           row.appendChild(valueCell);
@@ -86,7 +92,8 @@ function loadProductData(product) {
 
       if (data.length > 0) {
         const item = data[0];
-        const keys = ['Average', 'Compliant', 'Count', 'Count Offspec', 'Max', 'Min', 'Pct In Spec', 'Product'];
+        // Adjusted the keys to match the new order
+        const keys = ['Product', 'Count', 'Min', 'Max', 'Average', 'Pct In Spec', 'Count Offspec', 'Compliant'];
         keys.forEach(key => {
           const row = document.createElement('tr');
           row.classList.add('table-light');
@@ -96,7 +103,11 @@ function loadProductData(product) {
           keyCell.textContent = key;
 
           const valueCell = document.createElement('td');
-          valueCell.textContent = item[key];
+          if (key === 'Compliant') {
+            valueCell.textContent = item[key] ? 'Yes' : 'No';
+          } else {
+            valueCell.textContent = item[key];
+          }
 
           row.appendChild(keyCell);
           row.appendChild(valueCell);
