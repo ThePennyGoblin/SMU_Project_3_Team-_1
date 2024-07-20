@@ -17,18 +17,16 @@
       padding: 20px;
       box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     }
-    .scroll-to {
-      cursor: pointer;
+    .scroll-buttons {
       position: fixed;
-      z-index: 1000;
+      top: 10px;        
+      right: 10px;      
+      display: flex;    
+      gap: 10px;        
+      z-index: 1000;    
     }
-    #scroll-to-height {
-      top: 10px;
-      right: 10px;
-    }
-    #scroll-to-weight {
-      bottom: 10px;
-      right: 10px;
+    .scroll-buttons a {
+      cursor: pointer;  
     }
   </style>
 </head>
@@ -57,7 +55,12 @@
     </div>
   </nav>
 
-  <a id="scroll-to-height" href="#heightSection" class="btn btn-secondary scroll-to">Go to Height</a>
+  <!-- Add a wrapper for buttons -->
+<div class="scroll-buttons">
+  <a id="scroll-to-weight" href="#weightSection" class="btn btn-secondary">Go to Weight</a>
+  <a id="scroll-to-height" href="#heightSection" class="btn btn-secondary">Go to Height</a>
+</div>
+
   <div class="container-custom">
     <div class="card text-white bg-primary mb-3" id="weightSection">
       <div class="card-body">
@@ -106,7 +109,6 @@
     </div>
   </div>
 
-  <a id="scroll-to-weight" href="#weightSection" class="btn btn-secondary scroll-to">Go to Weight</a>
 
   <script src="{{ url_for('static', filename='js/overview.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
