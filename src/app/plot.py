@@ -46,21 +46,25 @@ def goal_posts(spec_df, metric_df, config):
    return posts
 
 def make_plot(df, bins, posts, col, prod_name, type_of_chart, axis_labels):
-   
    fig = px.histogram(df, x=col, nbins=bins)
-   fig.add_vline(x=posts[0], line_dash='solid', line_color='red',annotation_text=f"{posts[0]:.2f}", annotation_position="top left")
-   fig.add_vline(x=posts[1], line_dash='solid', line_color='red',annotation_text=f"{posts[1]:.2f}", annotation_position="top left")
-   fig.add_vline(x=posts[2], line_dash='longdash', line_color='blue',annotation_text=f"{posts[2]:.2f}", annotation_position="top left")
-
+   fig.add_vline(x=posts[0], line_dash='solid', line_color='red', line_width=4, annotation_text=f"{posts[0]:.2f}", annotation_position="top left")
+   fig.add_vline(x=posts[1], line_dash='solid', line_color='red', line_width=4, annotation_text=f"{posts[1]:.2f}", annotation_position="top left")
+   fig.add_vline(x=posts[2], line_dash='longdash', line_color='blue', line_width=4, annotation_text=f"{posts[2]:.2f}", annotation_position="top left")
+     # Add invisible scatter points for legend
+   fig.add_scatter(x=[None], y=[None], mode='lines', line=dict(color='red', dash='solid'), name=f"Spec Min {posts[0]:.2f}")
+   fig.add_scatter(x=[None], y=[None], mode='lines', line=dict(color='red', dash='solid'), name=f"Spec Max {posts[1]:.2f}")
+   fig.add_scatter(x=[None], y=[None], mode='lines', line=dict(color='blue', dash='longdash'), name=f"Mean {posts[2]:.2f}")
    fig.update_layout(
-      width=800,
-      height=600,
+      autosize=True,
       title=f'{type_of_chart.capitalize()} Distribution of {prod_name}',
       xaxis_title=f'{axis_labels}',
       yaxis_title='Count',
+      plot_bgcolor='rgba(0,0,0,0)',  # Transparent background
+      paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+      font=dict(color='lightgrey')
    )
-
-   fig.update_traces(marker=dict(color='#43A7E5', line=dict(width=1, color='DarkSlateGrey')))
+   fig.update_xaxes(showline=True, linewidth=2, linecolor='grey', gridcolor='grey')
+   fig.update_yaxes(showline=True, linewidth=2, linecolor='grey', gridcolor='grey')
+   fig.update_traces(marker=dict(color='#5BC0DE', line=dict(width=1, color='DarkSlateGrey')))
    
    return fig
-   
