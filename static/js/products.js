@@ -61,7 +61,7 @@ function loadProductData(product) {
         const keys = ['Product', 'Count', 'Min', 'Max', 'Average', 'Pct In Spec', 'Count Offspec', 'Compliant'];
         keys.forEach(key => {
           const row = document.createElement('tr');
-          row.classList.add('table-light');
+          row.classList.add('table-dark');
 
           const keyCell = document.createElement('th');
           keyCell.scope = 'row';
@@ -96,7 +96,7 @@ function loadProductData(product) {
         const keys = ['Product', 'Count', 'Min', 'Max', 'Average', 'Pct In Spec', 'Count Offspec', 'Compliant'];
         keys.forEach(key => {
           const row = document.createElement('tr');
-          row.classList.add('table-light');
+          row.classList.add('table-dark');
 
           const keyCell = document.createElement('th');
           keyCell.scope = 'row';
