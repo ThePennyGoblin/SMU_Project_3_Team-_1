@@ -10,21 +10,3 @@ metric_id column created.
 product_id column created.
 products loaded.
 metrics loaded.
-metric csv successful
-spec csv successful
-butcher_db already exists.
-Unable to execute query: (psycopg2.errors.DuplicateTable) relation "metrics" already exists
-
-[SQL: CREATE TABLE "metrics" (
-    "metric_id" INTEGER   NOT NULL,
-    "product_id" INTEGER   NOT NULL,
-    "product_name" VARCHAR(50)   NOT NULL,
-    "date_time" TIMESTAMP   NOT NULL,
-    "measured_weight" FLOAT   NOT NULL,
-    "measured_height" FLOAT   NOT NULL,
-    CONSTRAINT "pk_metrics" PRIMARY KEY (
-        "metric_id"
-     )
-)]
-(Background on this error at: https://sqlalche.me/e/20/f405)metric_id column created.
-product_id column created.
