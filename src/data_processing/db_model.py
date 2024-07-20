@@ -1,15 +1,27 @@
-from src.config.private_info import DB_NAME, test_def_db, test_new_db
 from src.data_processing.data_load import log_data
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import SQLAlchemyError
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+DB_USER = os.getenv('DB_USER')
+DB_PASS = os.getenv('DB_PASS')
+DB_HOST = os.getenv('DB_HOST')
+DB_DEF_NAME = os.getenv('DEF_DB_NAME')
+DB_NEW_NAME = os.getenv('NEW_DB_NAME')
+DB_PORT = os.getenv('DB_PORT')
+
+default_db_url = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_DEF_NAME}"
 
 
 def establish_db():
-    print(create_db(DB_NAME, test_def_db))
-    if type(DB_NAME) == bool:
+    print(create_db(DB_NEW_NAME, default_db_url))
+    if type(DB_NEW_NAME) == bool:
         return 'DB already exists'
     else:
-        return create_tables(DB_NAME)
+        return create_tables(DB_NEW_NAME)
 
 
 def create_db(db_name: str, db_url: str) -> str:
@@ -29,8 +41,8 @@ def create_db(db_name: str, db_url: str) -> str:
     return f'{db_name} created.'
 
 def create_tables(db_name: str):
-    # new_db_url = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:5432/{db_name}"
-    engine = create_engine(test_new_db)
+    new_db_url = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{db_name}"
+    engine = create_engine(new_db_url)
     
     with open('data/sql/schema.sql', 'r', encoding='utf-8-sig') as file:
         table_create_query = file.read()
