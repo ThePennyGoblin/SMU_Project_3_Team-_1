@@ -1,13 +1,25 @@
 from flask import Flask, jsonify, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from src.config.private_info import test_new_db
 from src.app.vital_stats import action_card, make_overall_card_height, make_overall_card_weight, product_specific_card
 from src.app.plot import generate_histogram
 from src.app.db_operations import query_product_list
 import plotly.io as pio
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+DB_USER = os.getenv('DB_USER')
+DB_PASS = os.getenv('DB_PASS')
+DB_HOST = os.getenv('DB_HOST')
+DB_NAME = os.getenv('NEW_DB_NAME')
+DB_PORT = os.getenv('DB_PORT')
+
+db_url = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = test_new_db
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
