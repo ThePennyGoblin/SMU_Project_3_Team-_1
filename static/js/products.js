@@ -49,30 +49,41 @@ function loadProductData(product) {
 
   // Fetch and render the weight statistics
   fetch(`/data/products/describe/weight/${encodedProduct}`)
-    .then(response => response.json())
-    .then(data => {
-      console.log("Weight description response: ", data); // Log the weight description response
-      const statsWeightBody = document.getElementById('stats-weight');
-      statsWeightBody.innerHTML = '';
+  .then(response => response.json())
+  .then(data => {
+    console.log("Weight description response: ", data); // Log the weight description response
+    const statsWeightBody = document.getElementById('stats-weight');
+    statsWeightBody.innerHTML = '';
 
-      if (data.length > 0) {
-        const item = data[0];
-        // Adjusted the keys to match the new order
-        const keys = ['Product', 'Count', 'Min', 'Max', 'Average', 'Pct In Spec', 'Count Offspec', 'Compliant'];
-        keys.forEach(key => {
-          const row = document.createElement('tr');
-          row.classList.add('table-dark');
+    if (data.length > 0) {
+      const item = data[0];
+      // Adjusted the keys to match the new order
+      const keys = ['Product', 'Count', 'Min', 'Max', 'Average', 'Pct In Spec', 'Count Offspec', 'Compliant'];
+      keys.forEach(key => {
+        const row = document.createElement('tr');
 
-          const keyCell = document.createElement('th');
-          keyCell.scope = 'row';
-          keyCell.textContent = key;
+        const keyCell = document.createElement('th');
+        keyCell.scope = 'row';
+        keyCell.textContent = key;
 
-          const valueCell = document.createElement('td');
-          if (key === 'Compliant') {
-            valueCell.textContent = item[key] ? 'Yes' : 'No';
+        const valueCell = document.createElement('td');
+        if (key === 'Compliant') {
+          valueCell.textContent = item[key] ? 'Yes' : 'No';
+          // Apply the table-danger class if Compliant is 'No'
+          if (!item[key]) {
+            row.classList.add('table-danger');
           } else {
-            valueCell.textContent = item[key];
+            row.classList.add('table-dark');
           }
+        } else {
+          valueCell.textContent = item[key];
+          // Apply the table-danger class if Pct In Spec is below 95%
+          if (key === 'Pct In Spec' && parseFloat(item[key]) < 95) {
+            row.classList.add('table-danger');
+          } else {
+            row.classList.add('table-dark');
+          }
+        }
 
           row.appendChild(keyCell);
           row.appendChild(valueCell);
@@ -84,30 +95,41 @@ function loadProductData(product) {
 
   // Fetch and render the height statistics
   fetch(`/data/products/describe/height/${encodedProduct}`)
-    .then(response => response.json())
-    .then(data => {
-      console.log("Height description response: ", data); // Log the height description response
-      const statsHeightBody = document.getElementById('stats-height');
-      statsHeightBody.innerHTML = '';
+  .then(response => response.json())
+  .then(data => {
+    console.log("Height description response: ", data); // Log the height description response
+    const statsHeightBody = document.getElementById('stats-height');
+    statsHeightBody.innerHTML = '';
 
-      if (data.length > 0) {
-        const item = data[0];
-        // Adjusted the keys to match the new order
-        const keys = ['Product', 'Count', 'Min', 'Max', 'Average', 'Pct In Spec', 'Count Offspec', 'Compliant'];
-        keys.forEach(key => {
-          const row = document.createElement('tr');
-          row.classList.add('table-dark');
+    if (data.length > 0) {
+      const item = data[0];
+      // Adjusted the keys to match the new order
+      const keys = ['Product', 'Count', 'Min', 'Max', 'Average', 'Pct In Spec', 'Count Offspec', 'Compliant'];
+      keys.forEach(key => {
+        const row = document.createElement('tr');
 
-          const keyCell = document.createElement('th');
-          keyCell.scope = 'row';
-          keyCell.textContent = key;
+        const keyCell = document.createElement('th');
+        keyCell.scope = 'row';
+        keyCell.textContent = key;
 
-          const valueCell = document.createElement('td');
-          if (key === 'Compliant') {
-            valueCell.textContent = item[key] ? 'Yes' : 'No';
+        const valueCell = document.createElement('td');
+        if (key === 'Compliant') {
+          valueCell.textContent = item[key] ? 'Yes' : 'No';
+          // Apply the table-danger class if Compliant is 'No'
+          if (!item[key]) {
+            row.classList.add('table-danger');
           } else {
-            valueCell.textContent = item[key];
+            row.classList.add('table-dark');
           }
+        } else {
+          valueCell.textContent = item[key];
+          // Apply the table-danger class if Pct In Spec is below 95%
+          if (key === 'Pct In Spec' && parseFloat(item[key]) < 95) {
+            row.classList.add('table-danger');
+          } else {
+            row.classList.add('table-dark');
+          }
+        }
 
           row.appendChild(keyCell);
           row.appendChild(valueCell);
