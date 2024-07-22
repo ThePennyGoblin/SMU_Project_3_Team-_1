@@ -81,7 +81,7 @@ Steps are governed by the below flow-chart:
         - thickness
     
 6. Data Serving: Python (Flask, pandas, NumPy)
-    Flask -
+    - Flask
         - Create endpoints to serve html files & data as APIs for client to read.
         - Integrate internal modules to transform the data.
 
@@ -127,7 +127,7 @@ User Experience:
 - Transform data differently based on who the stakeholder is.  
 
 Data + Reports:
-- Send livelinks or emails when data is uploaded to the database
+- Send live-links or emails when data is uploaded to the database
 - Embed radio buttons to call/ download csv reports from the website based on data and product
 
 ## Learning Notes
@@ -135,11 +135,14 @@ Data + Reports:
 - Caite Green : There are a lot of team members with impressive skills.  Hire them. Look at this app. Also, learned a number of future-proofing and trouble-shooting methods like function-wrapping and creating safe errors so VSCode offers up suggestions. 
 - Abigail Presley : The importance of testing across various browsers to check for inconsistencies and the use of bootstrap doing all of the css work for us saves so much time and work.
 - Saad Nasir : 
-- Josh Still : HTML and frontend.  
+    - How important it is to properly clean your data, regardless of if you don't think certain things will be necessary.
+    - Importance of standardized and consistent naming conventions for ease of debugging & modifying.
+    - For future projects, use of dev branches and feature branches to avoid breaking main/master branch.
+- Josh Still : HTML and front-end.  
 
 ## Resources
  - Anonymized Dataset - original data sourced from industrial butcher production-line camera reader.  
  - Bootswatch Slate (https://bootswatch.com/5/slate/bootstrap.min.css)
- - Plotly.js (https://cdn.plot.ly/plotly-latest.min.js)
- - And the intern... (ChatGPT 4.0)
+ - Logo (https://ideogram.ai/t/explore)
+ - And the intern... (ChatGPT 4o)
 
