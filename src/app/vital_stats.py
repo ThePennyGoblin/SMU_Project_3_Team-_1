@@ -112,7 +112,7 @@ def product_specific_card(engine, product_name, config_key):
     max_ = np.max(m_df[card_config[2]])
     in_spec = m_df[card_config[2]].apply(lambda x: min_spec <= x <= max_spec)
     percent_in_spec = round((np.sum(in_spec)/np.sum(count_))*100,2)
-    out_spec_val = m_df.loc[~in_spec, card_config[2]].values
+    out_spec_val = m_df.loc[~in_spec, card_config[2]].values.tolist()
     count_oos = len(out_spec_val)
     compliance = percent_in_spec > 95.00
 

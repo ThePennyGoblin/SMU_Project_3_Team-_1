@@ -55,9 +55,10 @@ def goal_posts(spec_df, metric_df, config):
 
 def make_plot(df, bins, posts, col, prod_name, type_of_chart, axis_labels, tick_list):
    fig = px.histogram(df, x=col, nbins=bins)
-   fig.add_vline(x=posts[0], line_dash='longdash', line_color='#4682B4', line_width=4, annotation_text=f"{posts[0]:.2f}", annotation_position="top left")
-   fig.add_vline(x=posts[1], line_dash='longdash', line_color='#4682B4', line_width=4, annotation_text=f"{posts[1]:.2f}", annotation_position="top left")
-   fig.add_vline(x=posts[2], line_dash='solid', line_color='DarkSlateGrey', line_width=4, annotation_text=f"{posts[2]:.2f}", annotation_position="top left")
+   
+   fig.add_vline(x=posts[0], line_dash='longdash', line_color='cadetblue', line_width=4, annotation_text=f"{posts[0]:.2f}", annotation_position="top left")
+   fig.add_vline(x=posts[1], line_dash='longdash', line_color='cadetblue', line_width=4, annotation_text=f"{posts[1]:.2f}", annotation_position="top left")
+   fig.add_vline(x=posts[2], line_dash='dash', line_color='sienna', line_width=4, annotation_text=f"{posts[2]:.2f}", annotation_position="top left")
 
 
    fig.update_layout(
@@ -78,6 +79,6 @@ def make_plot(df, bins, posts, col, prod_name, type_of_chart, axis_labels, tick_
 
    fig.update_xaxes(showline=True, linewidth=2, linecolor='grey', gridcolor='grey')
    fig.update_yaxes(showline=True, linewidth=2, linecolor='grey', gridcolor='grey')
-   fig.update_traces(marker=dict(color='#D04B16', line=dict(width=1, color='DarkSlateGrey')))
+   fig.update_traces(marker=dict(color='silver', line=dict(width=1, color='DarkSlateGrey')))
    
    return fig
