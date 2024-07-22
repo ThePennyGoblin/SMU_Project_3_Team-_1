@@ -10,9 +10,8 @@
     - Provide suggestions where we should further clean data, add additional slicers for a dashboard, etc for better data-driven decision-making. 
     - Future proof the tool
     - Serve this live using AWS sources-- database AWS, and EDB.  
-
-
--These goals are met by: 
+    
+- These goals are met by: 
     - Interactive visualizations dashboard
         - Actions Page : provides a dynamic list of out of compliant products so stakeholders can focus on correction.
         - Overview Page : provides a dynamic table of each relevant metric, with action items (non-compliant) staged at the to for easy review. 
