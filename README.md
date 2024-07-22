@@ -1,6 +1,6 @@
 # SMU_Project_3_Team-_1
 
-# Production-Line Butcher - Quality Control
+# Generic Butcher Company - Tools for Quality Control Success
 
 ## Project Overview
 - As the quality control team for an industrial butcher, we are tasked with determining:
