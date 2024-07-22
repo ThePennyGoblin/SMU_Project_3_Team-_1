@@ -11,12 +11,12 @@
     - Future proof the tool
     - Serve this live using AWS sources-- database AWS, and EDB.  
 
-- These goals are met by: 
+
+-These goals are met by: 
     - Interactive visualizations dashboard
         - Actions Page : provides a dynamic list of out of compliant products so stakeholders can focus on correction.
         - Overview Page : provides a dynamic table of each relevant metric, with action items (non-compliant) staged at the to for easy review. 
         - Products Page : provides side-by-side view of each metric, called dynamically by product in the left nav-bar. Vital statistics are called to further describe data.
-  
     - Libraries and Tools not covered in class
         - plotly.express
         - plotly.io
@@ -25,25 +25,15 @@
         - https://bootswatch.com/5/slate/bootstrap.min.css
         - https://cdn.plot.ly/plotly-latest.min.js
         - AWS EBS
-   
     - Data stored and extracted from database
-        - Tools: 
-            - AWS RDB
-            - postgres
-            - DBeaver
-        - Files:
-            -data_processing.py
-            -data_cleaning.py
-            -data_load.py
-            -db_model.py
     - Group Presentation 
 
 
 ## Team Members
-Abigail Parsley
-Caite Green
-Josh Still
-Kevin Khan
+- Abigail Parsley
+- Caite Green
+- Josh Still
+- Kevin Khan
 
 ## Tools and Technologies
 
@@ -55,7 +45,7 @@ Kevin Khan
 - Flask (API)
 - OTHER PENDING
 
-ools - CSV, PostgresSQL, Python(various libraries)
+Tools - CSV, PostgresSQL, Python(various libraries)
         - Stripped spaces and semi-colons, any N/A and errors.
         - Removed non-relevant data, like 
             -"test blocks"
@@ -63,6 +53,9 @@ ools - CSV, PostgresSQL, Python(various libraries)
             -Suspected manual entry errors (no decimal points) on weight that populated >50 lbs (multiplied by .01 to reset decimals)
             -
 ## Project Steps
+Steps are governed by the below flow-chart: 
+![flow](resources/images/project_architecture.png)
+
 1. Data Ingestion - Python pandas, CSV, Excel, postgresql, csv, dotenv
     - Function to take in CSV.
     - Function to clean & transform and add ID columns.
@@ -107,25 +100,33 @@ ools - CSV, PostgresSQL, Python(various libraries)
 
 9. Deployment AWS EBS, GitHub CICD
 
+## Website Views
+Actions
+![actions](resources/images/actions.png)
+
+Overview
+![overview](resources/images/overview.png)
+
+Products
+![products](resources/images/products.png)
+
 ## Conclusion and Ethical Considerations 
 This tool is designed with internal stakeholders in mind.  It catches issues, serves those issue succintly, and provides the quality control team visibilty into what lines they need to review.
 
-External stakeholders should not be served this view.  They should be provided a second data-cleaning step that normalizes more complex issues.  An example of these errors, is a finding where it looks like 12 oz steaks were accidentally coded as 6-oz. Unless the customer then had those packed in 12-oz boxes, these are not relevant to the quality of the product. 
+External stakeholders should not be served this view.  They should be provided a second data-cleaning step that normalizes more complex issues.  An example of these errors, is a finding where it looks like 3oz steaks were accidentally coded as 13-oz. Unless the customer then had those packed in 13-oz boxes, these are not relevant to the quality of the product. 
 
 The project discusses the real-world problem of determining what data is and is not relevant. It further explores who the audience is, what story the data tells, and how cleaning and transforming and visualizing that data skews what insights are served.  
 
 
 ## Future Work
-Based on client requests and stakeholder.  
+Based on client requests and stakeholder these are some future considerations for the app. 
 
-User Experience:
-- The overall architecture works, so all we'd need to do is redefine Python functions and find places in the html.  
-- Date/Time slicer
-- Quarterly view, monthly, view, weekly, daily ingestion and view
-- Outliers lists by product and date
-- Interactive callout from the action page to the product page product (or plots within the action page)
-- Password protect the website-- landing main page
-- Different users could have different views (call different data)
+User Experience:  
+- Add quarterly view, monthly, view, weekly, daily ingestion and view
+- Add outliers lists by product and date
+- Add interactive callout from the action page to the product page product (or plots within the action page)
+- Add password protection to the website-- landing main page
+- Add different users could have different views (call different data)
 - Transform data differently based on who the stakeholder is.  
 
 Data + Reports:
@@ -135,9 +136,9 @@ Data + Reports:
 ## Learning Notes
 Kevin Khan : Bootswatch makes life so much easier. Gives us a CSS format out of the box. 
 Caite Green : There are a lot of team members with impressive skills.  Hire them. Look at this app. Also, learned a number of future-proofing and trouble-shooting methods like function-wrapping and creating safe errors so VSCode offers up suggestions. 
-Abigail Presley : 
+Abigail Presley : The importance of testing across various browsers to Tcheck for inconsistencies and the use of bootstrap doing all of the css work for us saves so much time and work.
 Saad Nasir : 
-Josh Still : 
+Josh Still : HTML and frontend.  
 
 ## Resources
     - Anonymized Dataset - original data sourced from industrial butcher production-line camera reader.  
