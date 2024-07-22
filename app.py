@@ -7,6 +7,7 @@ import plotly.io as pio
 from dotenv import load_dotenv
 import os
 
+# load in env variables
 load_dotenv()
 
 DB_USER = os.getenv('DB_USER')
@@ -19,6 +20,7 @@ db_url = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAM
 
 
 app = Flask(__name__)
+# Connect flask to database directly to manage open close of connection automatically
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

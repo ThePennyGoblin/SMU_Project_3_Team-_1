@@ -17,6 +17,13 @@ default_db_url = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}
 
 
 def establish_db():
+    """
+    Establishes a new database connection, creates the new database if it does not already exist,
+    and creates the necessary tables within the new database.
+
+    Returns:
+        str: Message indicating whether the database already exists or that the tables were created successfully.
+    """
     print(create_db(DB_NEW_NAME, default_db_url))
     if type(DB_NEW_NAME) == bool:
         return 'DB already exists'
@@ -25,6 +32,16 @@ def establish_db():
 
 
 def create_db(db_name: str, db_url: str) -> str:
+    """
+    Creates a new PostgreSQL database if it does not already exist.
+
+    Args:
+        db_name (str): Name of the database to be created.
+        db_url (str): URL for connecting to the default PostgreSQL database.
+
+    Returns:
+        str: Message indicating the result of the database creation process.
+    """
     
     engine = create_engine(db_url, isolation_level='AUTOCOMMIT')
     
@@ -41,6 +58,16 @@ def create_db(db_name: str, db_url: str) -> str:
     return f'{db_name} created.'
 
 def create_tables(db_name: str):
+    """
+    Creates tables in the specified database based on the schema defined in the SQL file.
+
+    Args:
+        db_name (str): Name of the database where tables will be created.
+
+    Returns:
+        str: Message indicating the result of the table creation process.
+    """
+    
     new_db_url = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{db_name}"
     engine = create_engine(new_db_url)
     
