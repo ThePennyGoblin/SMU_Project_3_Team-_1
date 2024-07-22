@@ -44,13 +44,13 @@
 - Flask (API)
 - OTHER PENDING
 
-Tools - CSV, PostgresSQL, Python(various libraries)
-        - Stripped spaces and semi-colons, any N/A and errors.
+- Tools : CSV, PostgresSQL, Python(various libraries)
+    - Stripped spaces and semi-colons, any N/A and errors.
         - Removed non-relevant data, like 
-            -"test blocks"
-            -Suspected water on the line -- lower outliers that didn't make sense for thickness (dropped entire rows)
-            -Suspected manual entry errors (no decimal points) on weight that populated >50 lbs (multiplied by .01 to reset decimals)
-            -
+        - "test blocks"
+        - Suspected water on the line -- lower outliers that didn't make sense for thickness (dropped entire rows)
+        - Suspected manual entry errors (no decimal points) on weight that populated >50 lbs (multiplied by .01 to reset decimals)
+
 ## Project Steps
 Steps are governed by the below flow-chart: 
 ![flow](resources/images/project_architecture.png)
