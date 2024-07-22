@@ -1,5 +1,3 @@
-# SMU_Project_3_Team-_1
-
 # Generic Butcher Company - Tools for Quality Control Success
 
 ## Project Overview
@@ -83,7 +81,7 @@ Steps are governed by the below flow-chart:
         - thickness
     
 6. Data Serving: Python (Flask, pandas, NumPy)
-    Flask - app.py
+    Flask -
         - Create endpoints to serve html files & data as APIs for client to read.
         - Integrate internal modules to transform the data.
 
