@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: github.repository == 'SaadNasir92/Generic_Butcher_Interactive_WebDashboard'
 
     steps:
       - name: Checkout code
