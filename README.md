@@ -134,15 +134,15 @@ Data + Reports:
 - Embed radio buttons to call/ download csv reports from the website based on data and product
 
 ## Learning Notes
-Kevin Khan : Bootswatch makes life so much easier. Gives us a CSS format out of the box. 
-Caite Green : There are a lot of team members with impressive skills.  Hire them. Look at this app. Also, learned a number of future-proofing and trouble-shooting methods like function-wrapping and creating safe errors so VSCode offers up suggestions. 
-Abigail Presley : The importance of testing across various browsers to Tcheck for inconsistencies and the use of bootstrap doing all of the css work for us saves so much time and work.
-Saad Nasir : 
-Josh Still : HTML and frontend.  
+- Kevin Khan : Bootswatch makes life so much easier. Gives us a CSS format out of the box. 
+- Caite Green : There are a lot of team members with impressive skills.  Hire them. Look at this app. Also, learned a number of future-proofing and trouble-shooting methods like function-wrapping and creating safe errors so VSCode offers up suggestions. 
+- Abigail Presley : The importance of testing across various browsers to Tcheck for inconsistencies and the use of bootstrap doing all of the css work for us saves so much time and work.
+- Saad Nasir : 
+- Josh Still : HTML and frontend.  
 
 ## Resources
-    - Anonymized Dataset - original data sourced from industrial butcher production-line camera reader.  
-    - Bootstrap https://bootswatch.com/5/slate/bootstrap.min.css
-    - Plotly.js https://cdn.plot.ly/plotly-latest.min.js
-    - And the intern... (ChatGPT 4.0)
+ - Anonymized Dataset - original data sourced from industrial butcher production-line camera reader.  
+ - Bootstrap https://bootswatch.com/5/slate/bootstrap.min.css
+ - Plotly.js https://cdn.plot.ly/plotly-latest.min.js
+ - And the intern... (ChatGPT 4.0)
 
