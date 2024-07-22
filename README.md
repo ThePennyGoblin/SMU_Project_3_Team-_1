@@ -45,11 +45,7 @@
 - OTHER PENDING
 
 - Tools : CSV, PostgresSQL, Python(various libraries)
-    - Stripped spaces and semi-colons, any N/A and errors.
-        - Removed non-relevant data, like 
-        - "test blocks"
-        - Suspected water on the line -- lower outliers that didn't make sense for thickness (dropped entire rows)
-        - Suspected manual entry errors (no decimal points) on weight that populated >50 lbs (multiplied by .01 to reset decimals)
+   
 
 ## Project Steps
 Steps are governed by the below flow-chart: 
@@ -69,6 +65,11 @@ Steps are governed by the below flow-chart:
     - Data analysis -- understand data to create punch list to transform, used Excel as a test env, as well as Python. 
     - Create multiple plot models, use as a tool to further refine cleaning and data story. 
     - Added vertical mean, and upper/lower spec lines.  
+    - Stripped spaces and semi-colons, any N/A and errors.
+    - Removed non-relevant data, like 
+        - "test blocks"
+        - Suspected water on the line -- lower outliers that didn't make sense for thickness (dropped entire rows)
+        - Suspected manual entry errors (no decimal points) on weight that populated >50 lbs (multiplied by .01 to reset decimals)
 
 4. Outlier and Error Handling -- Python pandas, numpy
     - Excluding all weights over 50 by multiplying by .01-- clear decimal placement error. These are likely just human error-- forgot decimals.  
