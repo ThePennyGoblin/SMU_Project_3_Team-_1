@@ -43,15 +43,20 @@
       </div>
     </div>
   </nav>
-
+    <!-- Description Header Line -->
+    <div class="container-fluid">
+          <h3 class="text-left my-4">95% compliance required to pass customer specification. </h2>
+        </div>
+      </div>
+    
   <div class="container-fluid">
     <div class="row">
       <!-- Vertical Navbar for Product List -->
-      <nav class="col-md-2 d-none d-md-block bg-light sidebar vertical-nav">
+      <nav class="col-md-2 d-none d-md-block bg-dark sidebar vertical-nav">
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <span class="nav-link active">Products</span>
+              <span class="nav-link active">PRODUCTS</span>
             </li>
             <li id="product-list" class="nav-item">
               <!-- Product items will be dynamically populated here -->
@@ -64,7 +69,7 @@
       <main class="col-md-10 ms-sm-auto col-lg-10 px-md-4">
         <!-- Row 1: Chart and Description -->
         <div class="row mb-3">
-          <div class="col-md-7">
+          <div class="col-md-9">
             <div class="card text-white bg-primary mb-3">
               <div class="card-header">Distributions Weight</div>
               <div class="card-body">
@@ -72,9 +77,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-3">
             <div class="card text-white bg-primary mb-3">
-              <div class="card-header">Statistics Weight</div>
+              <div class="card-header">Weight Values</div>
               <div class="card-body">
                 <table class="table table-hover">
                   <thead>
@@ -94,7 +99,7 @@
 
         <!-- Row 2: Chart and Description -->
         <div class="row mb-3">
-          <div class="col-md-7">
+          <div class="col-md-9">
             <div class="card text-white bg-primary mb-3">
               <div class="card-header">Distributions Height</div>
               <div class="card-body">
@@ -102,9 +107,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-3">
             <div class="card text-white bg-primary mb-3">
-              <div class="card-header">Statistics Height</div>
+              <div class="card-header">Height Values</div>
               <div class="card-body">
                 <table class="table table-hover">
                   <thead>
@@ -124,7 +129,9 @@
       </main>
     </div>
   </div>
-
+  <footer class="footer" style="text-align: center;">
+    <p>&copy; 2024 Generic Butcher Co. All rights reserved.</p>
+</footer>
   <script src="{{ url_for('static', filename='js/products.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>

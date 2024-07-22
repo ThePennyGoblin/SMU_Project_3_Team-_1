@@ -1,9 +1,20 @@
 import pandas as pd
 from sqlalchemy import create_engine
 from src.config.config import PRIMARY_KEYS, CSV_PATHS, TABLE_NAMES, MERGE_CONFIG
-from src.config.private_info import test_new_db
+from dotenv import load_dotenv
+import os
 
-engine = create_engine(test_new_db, isolation_level='AUTOCOMMIT')
+load_dotenv()
+
+DB_USER = os.getenv('DB_USER')
+DB_PASS = os.getenv('DB_PASS')
+DB_HOST = os.getenv('DB_HOST')
+DB_NAME = os.getenv('NEW_DB_NAME')
+DB_PORT = os.getenv('DB_PORT')
+
+db_url = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+
+engine = create_engine(db_url, isolation_level='AUTOCOMMIT')
 
 def dump_data():
     # zipping primary key with appropriate csv path to make primary key cols.

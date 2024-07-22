@@ -19,7 +19,7 @@ def make_overall_card_weight(engine):
     Max_Weight=('measured_weight', 'max'),
     Average_Weight=('measured_weight', 'mean')
     ).reset_index()
-    
+
     # Calculate additional metrics
     grouped['Pct_In_Spec'] = m_df.groupby('product_name').apply(
         lambda x: (x['measured_weight'].between(x['weight_min'], x['weight_max'])).mean() * 100
@@ -106,13 +106,13 @@ def product_specific_card(engine, product_name, config_key):
     
     min_spec = s_df[card_config[0]].values[0]
     max_spec = s_df[card_config[1]].values[0]
-    avg_ = np.mean(m_df[card_config[2]])
+    avg_ = round(np.mean(m_df[card_config[2]]),2)
     count_ = len(m_df[card_config[2]])
     min_ = np.min(m_df[card_config[2]])
     max_ = np.max(m_df[card_config[2]])
     in_spec = m_df[card_config[2]].apply(lambda x: min_spec <= x <= max_spec)
-    percent_in_spec = (np.sum(in_spec)/np.sum(count_))*100
-    out_spec_val = m_df.loc[~in_spec, card_config[2]].values
+    percent_in_spec = round((np.sum(in_spec)/np.sum(count_))*100,2)
+    out_spec_val = m_df.loc[~in_spec, card_config[2]].values.tolist()
     count_oos = len(out_spec_val)
     compliance = percent_in_spec > 95.00
 

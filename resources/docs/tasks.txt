@@ -50,9 +50,23 @@ Client Processing
     -CSS (probably won't need these with bootstrap) https://bootswatch.com/
 
 Debugging & Cleaning Up
+    PRIMARY
+    - Products tab, ensure the nav bar view the same in all windows
     - Ensure everything works as intended. 
     - Clean up unneccessary files/folders comments, fix any code, typo, refactor variables etc. 
+    - Products tab, left nav bar links need to be debugged
+    - Products tab, ensure table resize dynamically 
+    - All tabs, ensure the buttons work in app.python
+    - Make sure the plots work with the selected themes
 
+    SECONDARY
+    - Products tab, ensure when a product is activated that the link changes color
+    - Products tab, change column popup to something useful(i.e. count in weight range)
+    - Products tab, add vertical popups
+
+    PRESENTATION
+    - Sales pitch
+    - Finish Readme    
 Deployment
     AWS EBS 
         - Set up instance
