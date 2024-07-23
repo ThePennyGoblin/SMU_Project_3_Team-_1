@@ -6,6 +6,16 @@ import pandas as pd
 
 
 def make_overall_card_weight(engine):
+    """
+    Generates a summary DataFrame for weight metrics of all products, including counts, min, max, average weights, 
+    percentage in specification, count off-specification, and compliance status.
+
+    Args:
+        engine (sqlalchemy.engine.Engine): SQLAlchemy engine object for database connection.
+
+    Returns:
+        pandas.DataFrame: DataFrame containing summarized weight metrics for all products.
+    """
     m_df = query_metrics(engine)
     # transform > 50 weights as those are obvious outliers. 
     m_df = normalize_outliers(m_df, 'measured_weight', 50)
@@ -49,6 +59,16 @@ def make_overall_card_weight(engine):
 
 
 def make_overall_card_height(engine):
+    """
+    Generates a summary DataFrame for height metrics of all products, including counts, min, max, average heights,
+    percentage in specification, count off-specification, and compliance status.
+
+    Args:
+        engine (sqlalchemy.engine.Engine): SQLAlchemy engine object for database connection.
+
+    Returns:
+        pandas.DataFrame: DataFrame containing summarized height metrics for all products.
+    """
     
     m_df = query_metrics(engine)
     s_df = query_specs(engine)
@@ -92,7 +112,19 @@ def make_overall_card_height(engine):
     return grouped_height
 
 
-def product_specific_card(engine, product_name, config_key):
+def product_specific_card(engine, product_name: str, config_key: str):
+    """
+    Generates a summary DataFrame for specific metrics of a given product, including counts, min, max, average values,
+    percentage in specification, count off-specification, and compliance status.
+
+    Args:
+        engine (sqlalchemy.engine.Engine): SQLAlchemy engine object for database connection.
+        product_name (str): The name of the product for which the metrics are summarized.
+        config_key (str): Key to access specific configuration from VITAL_STATS_CONFIG.
+
+    Returns:
+        pandas.DataFrame: DataFrame containing summarized metrics for the specified product.
+    """
     
     card_config = VITAL_STATS_CONFIG[config_key]
     
@@ -131,6 +163,15 @@ def product_specific_card(engine, product_name, config_key):
     return subplot_
 
 def action_card(engine)-> dict:
+    """
+    Generates a dictionary containing products that are non-compliant based on weight and height metrics.
+
+    Args:
+        engine (sqlalchemy.engine.Engine): SQLAlchemy engine object for database connection.
+
+    Returns:
+        dict: Dictionary containing lists of non-compliant products for weight and height.
+    """
     df_w = make_overall_card_weight(engine)
     df_h = make_overall_card_height(engine)
     
